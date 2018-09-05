@@ -1,0 +1,13 @@
+{
+    "version": "0.0.0",
+    "token": "MzU2MTYwMTEwNDc0NjkwNTYy.DloKyA.m7pYirrXx52WVS7M2tQE1S6V5lE",
+    "username": "Dice Machine",
+    "activity": {
+        "name": "with the dice",
+        "type": "PLAYING"
+    },
+    "blacklist": [
+        "480449016220483610"
+    ],
+    "prefix": "::"
+}

@@ -1,0 +1,110 @@
+{
+    "name": "sample",
+    "user": "discord User ID",
+    "race": "human",
+    "languages": [
+        "common",
+        "javascript"
+    ],
+    "alignment": "CG",
+    "sex": "M",
+    "height": 5.6,
+    "weight": 138,
+    "class": "wizard",
+    "level": 1,
+    "experience": 0,
+    "health": {
+        "hitpoints": 8,
+        "maxhp": 8,
+        "dietype": "d8",
+        "diecount": 1
+    },
+    "ability": {
+        "strength": 11,
+        "dexterity": 13,
+        "constitution": 9,
+        "intelligence": 16,
+        "wisdom": 15,
+        "charisma": 14
+    },
+    "proficiency": {
+        "bonus": 2,
+        "items": [
+            "daggers",
+            "darts",
+            "slings",
+            "quarterstaffs",
+            "light crossbows"
+        ],
+        "skills": [
+            "arcana",
+            "investigation"
+        ],
+        "savingthrows": [
+            "intelligence",
+            "wisdom"
+        ]
+    },
+    "feats": [
+        "alert",
+        "keen mind"
+    ],
+    "inventory": {
+        "gold": 200,
+        "equipment": [
+            {
+                "name": "Robes of Debugging",
+                "description": "Magical robes used for development.",
+                "type": "clothing",
+                "equipped": true,
+                "notes": "+1d8 AC against bugs",
+                "armorbase": 1,
+                "weight": 3,
+                "stealth": true
+            },
+            {
+                "name": "Dev-Dagger",
+                "description": "a dagger good at stabbing bugs",
+                "type": "weapon",
+                "equipped": true,
+                "notes": "Deals critical damage to bugs.",
+                "weight": 5,
+                "martial": true,
+                "weapontype": "dagger",
+                "properties": [
+                    "light",
+                    "finesse"
+                ],
+                "damage": {
+                    "die": "1d4",
+                    "type": "piercing"
+                }
+            },
+            {
+                "name": "Keyboard and Mouse",
+                "description": "The mouse no longer squeaks.",
+                "type": "simple",
+                "weight": 1,
+                "equipped": false,
+                "notes": "does nothing special"
+            }
+        ]
+    },
+    "magic": {
+        "school": "conjuration",
+        "known": [
+            "Mage Hand",
+            "Prestidigitation",
+            "Minor Illusion",
+            "Unseen Servant",
+            "Disguise Self",
+            "Illusory Script"
+        ],
+        "prepared": [
+            
+        ],
+        "slots": [
+            3, 2, 0, 0, 0, 0, 0, 0, 0
+        ]
+    }
+}
