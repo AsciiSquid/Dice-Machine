@@ -1,0 +1,13 @@
+{
+    "version": "0.0.0",
+    "token": "Bot Token Goes Here",
+    "username": "Dice Machine",
+    "activity": {
+        "name": "with the dice",
+        "type": "PLAYING"
+    },
+    "blacklist": [
+        "480449016220483610"
+    ],
+    "prefix": "::"
+}
