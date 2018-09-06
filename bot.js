@@ -21,6 +21,8 @@ client.on('ready', () => {
 });
 
 function createRollReply(rolldata) {
+    if (rolldata === null) return 'Invalid roll!';
+    //Formats the results of the roll
     var msg = rolldata.sum.toString();
     msg += '```' + rolldata.rolls[0];
     for (i = 1; i < rolldata.rolls.length; i++) {

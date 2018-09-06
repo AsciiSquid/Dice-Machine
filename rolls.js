@@ -10,6 +10,8 @@ function rollDice(line) {
     let searched = reg.exec(line);
     var count = Math.abs(parseInt(searched[1])),
         die = Math.abs(parseInt(searched[2]));
+    //Checks for the 0 edge case (cause you cant roll 0)
+    if (count === 0 || die === 0) return null;
     //Does the rolls
     var rolls = [],
         sum = 0;
