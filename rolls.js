@@ -8,8 +8,8 @@ function rollDice(line) {
     const reg = /(^\d*)d(\d*)/;
     //Deconstruct the regex search data
     let searched = reg.exec(line);
-    var count = parseInt(searched[1]),
-        die = parseInt(searched[2]);
+    var count = Math.abs(parseInt(searched[1])),
+        die = Math.abs(parseInt(searched[2]));
     //Does the rolls
     var rolls = [],
         sum = 0;
