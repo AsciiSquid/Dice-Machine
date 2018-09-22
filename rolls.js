@@ -1,14 +1,12 @@
 //Rolls dice based on two numbers.
 function rollDice(count, max) {
-    console.log('Rolling '+count+'d'+max);
     //Checks for the 0 edge case (cause you cant roll 0)
     if (count <= 0 || max <= 0) {return null;}
     //Does the rolls
     var values = [],
         rollsum = 0;
-    for (i = 0; i < count; i++) {
+    for (var _ = 0; _ < count; _++) {
         let roll = Math.floor(Math.random() * max) + 1;
-        console.log('Rolled'+roll);
         values.push(roll);
         rollsum += roll;
     }
@@ -21,11 +19,10 @@ function parseCmd(line) {
         str = line.replace(/\s/g, '');
     //Splits the line
     var cmd = [];
-    for (i = undefined; i !== null; i = reg.exec(str)) {
+    for (var c = undefined; c !== null; c = reg.exec(str)) {
         //ingnores the initial undefined variable, as well as any slip ups
-        if (i) cmd.push(i[0]);
+        if (c) cmd.push(c[0]);
     }
-    console.log('Command: ' + cmd);
     return cmd;
 }
 //Converts the command into a rolldata object
@@ -34,8 +31,7 @@ function parseRoll(line) {
           dieReg = /(^\d+)d(\d+)/; //Regex used to locate dice commands
     var rolls = [], //list of dice roll data
         sum = 0; //total sum of calculation
-    for (i = 0; i < commands.length; i++) {
-        console.log('==='+commands[0]+'===')
+    for (var i = 0; i < commands.length; i++) {
         //Handles + or - characters
         var handle = commands[i][0];
         if (handle === '+') {
@@ -54,11 +50,9 @@ function parseRoll(line) {
             var count = Math.floor(parseInt(dice[1])),
                 max = Math.floor(parseInt(dice[2]));
             var roll = rollDice(count, max);
-            console.log('Result:'+roll);
             rolls.push(roll);
             sum += roll.sum;
         } else {
-            console.log('Added '+value+' to '+sum);
             rolls.push(commands[i]);
             sum += Math.floor(parseInt(value));
         }
@@ -67,3 +61,5 @@ function parseRoll(line) {
 }
 
 exports.parse = parseRoll;
+
+parseRoll('1d20 + 1')
