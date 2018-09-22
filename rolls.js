@@ -57,7 +57,7 @@ function parseRoll(line) {
             sum += Math.floor(parseInt(value));
         }
     }
-    return {sum: sum, info: rolls};
+    return {sum: Math.abs(sum), info: rolls};
 }
 
 exports.parse = parseRoll;
