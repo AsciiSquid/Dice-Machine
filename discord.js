@@ -21,14 +21,20 @@ client.on('ready', () => {
 });
 
 function createRollReply(rolldata) {
-    if (rolldata === null) return 'Invalid roll!';
-    //Formats the results of the roll
-    var msg = rolldata.sum.toString();
-    msg += '```' + rolldata.rolls[0];
-    for (i = 1; i < rolldata.rolls.length; i++) {
-        msg += ' + ' + rolldata.rolls[i];
+    var msg = rolldata.sum;
+    msg += "```";
+    function readBody(data) {
+        var item = data.shift();
+        if (typeof item == 'object') {
+            return `[${item.rolls.join('+')}]` + readBody(data);
+        } else if (typeof item == 'string') {
+            return item + readBody(data);
+        } else {
+            return '';
+        }
     }
-    return msg += '```';
+    msg += readBody(rolldata.info);
+    return msg + '```';
 }
 
 client.on('message', (message) => {
@@ -38,7 +44,7 @@ client.on('message', (message) => {
     else if (message.content.startsWith(config.prefix)) {
         //Removes prefix
         var msg = message.content.slice(config.prefix.length + 1),
-            rolldata = roll.parse(msg.split(' '));
+            rolldata = roll.parse(msg);
         //Collects the roll data, creates the reply, then sends it.
         message.channel.send(createRollReply(rolldata))
             .then(message => console.log(`Rolled up ${msg} for ${message.channel.name}`))

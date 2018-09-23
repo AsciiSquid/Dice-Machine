@@ -61,5 +61,3 @@ function parseRoll(line) {
 }
 
 exports.parse = parseRoll;
-
-parseRoll('1d20 + 1')
