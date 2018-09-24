@@ -1,0 +1,29 @@
+{
+  "name": "dice-machine",
+  "version": "0.0.1",
+  "description": "Rolls Dice for discord",
+  "main": "discord.js",
+  "scripts": {
+    "test": "echo \"Running in test mode\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AsciiSquid/Dice-Machine.git"
+  },
+  "keywords": [
+    "discord.js",
+    "dice"
+  ],
+  "author": "AsciiSquid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AsciiSquid/Dice-Machine/issues"
+  },
+  "homepage": "https://github.com/AsciiSquid/Dice-Machine#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "ffmpeg-binaries": "^4.0.0",
+    "node-opus": "^0.3.0",
+    "npm": "^6.4.1"
+  }
+}
