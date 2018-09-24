@@ -2,12 +2,12 @@
 const rl = require('readline'),
       roll = require('./rolls.js');
 
-const interface = rl.createInterface({
+const intf = rl.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-interface.prompt();
-interface.on('line', (input) => {
+intf.prompt();
+intf.on('line', (input) => {
     console.dir(roll.parse(input));
-    interface.prompt();
+    intf.prompt();
 });
