@@ -15,7 +15,7 @@ function rollDice(count, max) {
 //Converts the command line into usable data array
 function parseCmd(line) {
     //Regular expresion to break down the command
-    var reg = /(?:\+|-)?(?:\d+d\d+|\d)/g,
+    var reg = /(?:\+|-)?(?:\d+d\d+|\d+)/g,
         str = line.replace(/\s/g, '');
     //Splits the line
     var cmd = [];
@@ -27,9 +27,9 @@ function parseCmd(line) {
 }
 //Converts the command into a rolldata object
 function parseRoll(line) {
-    const commands = parseCmd(line),
-          dieReg = /(^\d+)d(\d+)/; //Regex used to locate dice commands
-    var rolls = [], //list of dice roll data
+    var commands = parseCmd(line),
+        dieReg = /(^\d+)d(\d+)/, //Regex used to locate dice commands
+        rolls = [], //list of dice roll data
         sum = 0; //total sum of calculation
     for (var i = 0; i < commands.length; i++) {
         //Handles + or - characters
@@ -50,8 +50,12 @@ function parseRoll(line) {
             var count = Math.floor(parseInt(dice[1])),
                 max = Math.floor(parseInt(dice[2]));
             var roll = rollDice(count, max);
-            rolls.push(roll);
-            sum += roll.sum;
+            if (roll) {
+                rolls.push(roll);
+                sum += roll.sum;
+            } else {
+                return null;
+            }
         } else {
             rolls.push(commands[i]);
             sum += Math.floor(parseInt(value));

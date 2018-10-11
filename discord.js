@@ -44,7 +44,7 @@ client.on('message', (message) => {
     //Check for prefix
     else if (message.content.startsWith(config.prefix)) {
         //Removes prefix
-        var msg = message.content.slice(config.prefix.length + 1),
+        var msg = message.content.slice(config.prefix.length),
             rolldata = roll.parse(msg);
         //Collects the roll data, creates the reply, then sends it.
         message.channel.send(createRollReply(rolldata))

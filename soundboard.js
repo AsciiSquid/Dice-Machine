@@ -23,6 +23,7 @@ function playSound(filename) {
     //Makes sure there is a connection to play into first.
     if (!voiceConnection) {
         console.log('Voice connection not established!');
+        interface.prompt();
         return null;
     }
     var filepath = path.join(soundPath, filename + '.wav');
@@ -30,9 +31,11 @@ function playSound(filename) {
     var dispatch = fs.existsSync(filepath) ? voiceConnection.playFile(filepath) : null;
     if (!dispatch) {
         console.log(`File ${filepath} not found!`);
+        interface.prompt();
         return null;
     } else {
         dispatch.on('end', (reason) => console.log(`Played ${filename}`));
+        interface.prompt();
         return filepath;
     }
 }
