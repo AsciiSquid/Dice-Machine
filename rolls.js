@@ -19,10 +19,11 @@ function parseCmd(line) {
         str = line.replace(/\s/g, '');
     //Splits the line
     var cmd = [];
-    for (var c = undefined; c !== null; c = reg.exec(str)) {
-        //ingnores the initial undefined variable, as well as any slip ups
-        if (c) cmd.push(c[0]);
-    }
+    cmd = str.match(reg);
+    // for (var c = undefined; c !== null; c = reg.exec(str)) {
+    //     //ingnores the initial undefined variable, as well as any slip ups
+    //     if (c) cmd.push(c[0]);
+    // }
     return cmd;
 }
 //Converts the command into a rolldata object
@@ -31,6 +32,9 @@ function parseRoll(line) {
         dieReg = /(^\d+)d(\d+)/, //Regex used to locate dice commands
         rolls = [], //list of dice roll data
         sum = 0; //total sum of calculation
+    if (!commands) {
+        return null;
+    }
     for (var i = 0; i < commands.length; i++) {
         //Handles + or - characters
         var handle = commands[i][0];

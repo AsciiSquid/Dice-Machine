@@ -17,7 +17,11 @@ client.on('ready', () => {
 });
 
 function createRollReply(rolldata) {
-    var msg = rolldata.sum;
+    var msg = '';
+    if (!rolldata) {
+        return "That's not a valid roll";
+    }
+    msg = rolldata.sum;
     msg += "```";
     function readBody(data) {
         var item = data.shift();
