@@ -3,13 +3,8 @@
 const fs = require('fs'),
       Discord = require('discord.js');
 const config = require('./config.json'),
-      roll = require('./rolls.js'),
-      sounds = require('./soundboard.js');
+      roll = require('./rolls.js');
 const client = new Discord.Client();
-//Logging into discord
-client.login(config.token)
-    .then(console.log)
-    .catch(console.error);
 
 client.on('ready', () => {
     //Sets name (if we need to)
@@ -50,15 +45,10 @@ client.on('message', (message) => {
         message.channel.send(createRollReply(rolldata))
             .then(message => console.log(`Rolled up ${msg} for ${message.channel.name}`))
             .catch(console.error);
-    } else if (message.content === '!!connect') {
-        message.member.voiceChannel.join()
-        .then((connection) => {
-            sounds.connect(connection);
-        });
-    } else if (message.content === '!!leave') {
-        var voiceConnection = client.voiceConnections.get(message.guild.id);
-        if (voiceConnection) {
-            voiceConnection.disconnect();
-        }
     }
 });
+
+//Logging into discord
+client.login(config.token)
+    .then(console.log)
+    .catch(console.error);

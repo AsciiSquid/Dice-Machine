@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/AsciiSquid/Dice-Machine#readme",
   "dependencies": {
-    "discord.js": "^11.4.2",
+    "bufferutil": "^4.0.0",
+    "discord.js": "file:node_modules/discord.js",
+    "erlpack": "github:discordapp/erlpack",
     "ffmpeg-binaries": "^4.0.0",
     "node-opus": "^0.3.0",
     "npm": "^6.4.1"
